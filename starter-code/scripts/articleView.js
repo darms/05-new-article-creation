@@ -79,14 +79,20 @@ $('.tab-content').show();
 // };
 
 articleView.create = function() {
-  // TODO: Set up a var to hold the new article we are creating.
+  // TODO: DONE Set up a var to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
-  var articleHolder;
+  var newArticle;
   $('#articles').empty();
 
 
 
-  // TODO: Instantiate an article based on what's in the form fields:
+  // TODO: DONE Instantiate an article based on what's in the form fields:
+
+var newArticle{
+  this.title= title;
+  $('#articles').append(newArticle).toHtml();
+}
+
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
 
