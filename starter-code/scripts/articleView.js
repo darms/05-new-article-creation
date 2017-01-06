@@ -75,12 +75,16 @@ $('.tab-content').show();
 
 
   // TODO: Add an event listener/handler to update the preview and the export field if any inputs change.
-$('')
-};
+// $('#export-field').on('change',)
+// };
 
 articleView.create = function() {
   // TODO: Set up a var to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
+  var articleHolder;
+  $('#articles').empty();
+
+
 
   // TODO: Instantiate an article based on what's in the form fields:
 
