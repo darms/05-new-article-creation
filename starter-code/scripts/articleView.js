@@ -88,14 +88,15 @@ articleView.create = function() {
 
   // TODO: DONE Instantiate an article based on what's in the form fields:
 
-var newArticle{
-  this.title= title;
-  $('#articles').append(newArticle).toHtml();
-}
+
 
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
 
+  var newArticle{
+    this.title= title;
+    $('#articles').append(newArticle).toHtml();
+  }
   // TODO: Activate the highlighting of any code blocks:
 
   // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
