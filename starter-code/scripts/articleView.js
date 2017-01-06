@@ -65,12 +65,17 @@ articleView.setTeasers = function() {
 };
 
 articleView.initNewArticlePage = function() {
-  // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later.
+  // TODO:DONE Ensure the main .tab-content area is revealed. We might add more tabs later.
 $('.tab-content').show();
-  // TODO: The new articles we create will be copy/pasted into our source data file.
+  // TODO: DONE The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide the export field for now, and show it once we have data to export.
+  $('#export-field').hide();
+  $('#article-json').on('focus', $this.select());
+
+
 
   // TODO: Add an event listener/handler to update the preview and the export field if any inputs change.
+$('')
 };
 
 articleView.create = function() {
