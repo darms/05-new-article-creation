@@ -13,7 +13,7 @@ function Article (opts) {
 
 Article.prototype.toHtml = function() {
   var template = Handlebars.compile($('#article-template').text());
-
+console.log('in the 2htmlfunction');
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
   // REVIEW: Here's where the marked library is used

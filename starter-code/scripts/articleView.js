@@ -70,47 +70,48 @@ articleView.initNewArticlePage = function() {
   // TODO: DONE The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide the export field for now, and show it once we have data to export.
   $('#export-field').hide();
-  $('#article-json').on('focus', $(this).select());
 
   // TODO: Add an event listener/handler to update the preview and the export field if any inputs change.
-  $('#new-form').change(function(){
-  articleView.create()
+  $('#write').on('change', function(){
+  articleView.create();
   });
+};
 
 articleView.create = function() {
   // TODO: DONE Set up a var to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
-  var newArticle;
   $('#articles').empty();
 
   // TODO: DONE Instantiate an article based on what's in the form fields:
 //What is in the form fields?//
+
   var tempArticle = new Article ({
     title: $('#article-title').val(),
-    articlebody: $('#article-body').val(),
+    body: $('#article-body').val(),
     author: $('#article-author').val(),
-    authorUrl: $('#author-url').val(),
+    authorUrl: $('#article-author-url').val(),
     category: $('#article-category').val(),
-    publishedOn: $('#article-published').val(),
-    body: $('#article-body').val()
+    publishedOn: $('#article-published:checked').length ? new Date() : null,
   });
 
-console.log('newArticle');
+console.log(tempArticle.toHtml);
 
   // TODO: DONE Use our interface to the Handblebars template to put this new article into the DOM:
-  $('li[data-content="articles"]').click(function(){
-    $('#articles').html('');
-    $('#articles').append(newArticle).toHtml();
-  })
-  // TODO: Activate the highlighting of any code blocks:
-  $(document).ready(function() {
-    $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-    });
-  });
-  // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-};
+    $('#articles').append(tempArticle.toHtml());
 
+  // TODO: Activate the highlighting of any code blocks:
+
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+
+  // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+  $('#export-field').show();
+
+  var stringifiedArticle = JSON.stringify(tempArticle);
+  $('#article-json').val(stringifiedArticle);
+  $('#article-json').on('focus', $(this).select());
+};
 
   articleView.initIndexPage = function() {
   articleView.populateFilters();
@@ -118,5 +119,4 @@ console.log('newArticle');
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-};
-};
+  };
